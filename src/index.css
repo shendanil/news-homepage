@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+  --clr-soft-orange: hsl(35, 77%, 62%);
+  --clr-soft-red: hsl(5, 85%, 63%);
+  --clr-off-white: hsl(36, 100%, 99%);
+  --clr-grayish-blue: hsl(233, 8%, 79%);
+  --clr-dark-grayish-blue: hsl(236, 13%, 42%);
+  --clr-very-dark-blue: hsl(240, 100%, 5%);
+}
+
+body {
+  margin: 0;
+  padding: 4rem 6rem;
+  background: var(--clr-off-white);
+}
+
+p {
+  line-height: 1.25rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+nav svg {
+  transform: scale(.75);
+  margin: -.5rem;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+  font-size: .75rem;
+  color: var(--clr-dark-grayish-blue);
+}
+
+li:hover {
+  color: var(--clr-soft-red);
+  cursor: pointer;
+}
+
+.menu-icon, .close-icon {
+  width: 2rem;
+  height: 1rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 5;
+}
+
+.menu-icon::before,  .close-icon::before, .close-icon::after {
+  content: '';
+  width: 2rem;
+  height: .1rem;
+  background: var(--clr-very-dark-blue);
+  position: absolute;
+}
+
+.menu-icon::before {
+  box-shadow: 
+    0 .5rem 0 0 black,
+    0 1rem 0 0 black;
+}
+
+.close-icon::before {
+  transform: rotate(45deg);
+}
+
+.close-icon::after {
+  transform: rotate(-45deg);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+  grid-template-areas:
+    "cover-img cover-img new"
+    "title section new";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.cover-img {
+  background-image: url('./src/assets/images/image-web-3-desktop.jpg');
+  background-size: cover;
+  background-position: center;
+  grid-area: cover-img;
+}
+
+.new-section {
+  padding: 1.5rem;
+  color: var(--clr-grayish-blue);
+  background: var(--clr-very-dark-blue);
+  grid-area: new;
+}
+
+.new-section h2 {
+  color: var(--clr-soft-orange);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.new-section h3 {
+  color: var(--clr-off-white);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.new-section h3:hover {
+  color: var(--clr-soft-orange);
+  cursor: pointer;
+}
+
+.new-section p {
+  color: var(--clr-grayish-blue);
+  font-size: .75rem;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+hr {
+  background: var(--clr-dark-grayish-blue);
+  height: 1px;
+  border: none;
+  opacity: .5;
+  margin: 1.25rem 0;
+}
+
+.new-section div:last-of-type hr {
+  display: none;
+}
+
+.grid h1 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  font-weight: 800;
+  margin: 0;
+  grid-area: title;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  grid-area: section;
+}
+
+.section p {
+  color: var(--clr-dark-grayish-blue);
+  font-size: .75rem;
+  margin: 0;
+}
+
+.section button {
+  color: var(--clr-off-white);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .25rem;
+  width: fit-content;
+  background: var(--clr-soft-red);
+  padding: .75rem 1.25rem;
+  border: none;
+  margin: 0;
+}
+
+button:hover {
+  background: var(--clr-very-dark-blue);
+  cursor: pointer;
+}
+
+.mini-article-section {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.mini-article {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.mini-article img {
+  width: 5rem;
+  object-fit: cover;
+}
+
+.mini-article .num {
+  color: var(--clr-grayish-blue);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.mini-article h3 {
+  color: var(--clr-very-dark-blue);
+  font-size: .75rem;
+  margin: .5rem 0;
+}
+
+.mini-article h3:hover {
+  color: var(--clr-soft-red);
+  cursor: pointer;
+}
+
+.mini-article .desc {
+  color: var(--clr-dark-grayish-blue);
+  font-size: .75rem;
+  margin: 0;
+}
+
+.attribution { 
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: .75rem;
+  background: white;
+  box-shadow: 0 0 2rem rgba(0 0 0 / .25);
+  padding: .5rem 1rem;
+  border-radius: .5rem 0 0 0;
+  z-index: 10;
+}
+
+.attribution p { 
+  margin: 0;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  text-decoration: none;
+}
+
+
+@media only screen and (max-width: 750px) {
+  .grid {
+    grid-template-areas:
+      "cover-img cover-img"
+      "title new"
+      "section new";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .mini-article-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mini-article-section img {
+    width: 7rem;
+  }
+
+  .mini-article-section .num {
+    font-size: 2rem;
+  }
+
+  .mini-article-section h3 {
+    font-size: 1.25rem;
+  }
+
+  .mini-article-section .desc {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 4rem 3rem;
+  }
+
+  .grid {
+    display: block;
+  }
+
+  .cover-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .grid h1 {
+    margin: 2rem 0 1rem 0;
+  }
+
+  .section p {
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .section {
+    margin-bottom: 2rem;
+  }
+
+  .mini-article-section .num {
+    font-size: 1.75rem;
+  }
+
+  .mini-article-section h3 {
+    font-size: 1rem;
+  }
+
+  .mini-article-section .desc {
+    font-size: .75rem;
+  }
+
+  .expanded-menu {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 100%;
+  background-color: var(--clr-off-white);
+  z-index: 1;
+  }
+
+  .expanded-menu::before {
+    content: '';
+    width: 20%;
+    height: 100%;
+    left: 0;
+    background: var(--clr-very-dark-blue);
+    opacity: .75;
+    position: inherit;
+  }
+
+  nav ul {
+    flex-direction: column;
+    font-size: 1.25rem;
+    margin-left: 10%;
+    color: var(--clr-dark-grayish-blue);
+  }
+
+  .body-with-expanded-menu {
+    overflow: hidden;
+  }
+
+  .attribution { 
+    font-size: .5rem;
+  }
+}
